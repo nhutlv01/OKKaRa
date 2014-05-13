@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A5693E2E-EF9D-495F-BB53-AE819672A3C9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OKKaRa</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6860306C-981F-4F7F-99D8-F8791D4F676E</key>
+		<string>https://github.com/nhutlv01/OKKaRa.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OKKaRa.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6860306C-981F-4F7F-99D8-F8791D4F676E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nhutlv01/OKKaRa.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6860306C-981F-4F7F-99D8-F8791D4F676E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6860306C-981F-4F7F-99D8-F8791D4F676E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OKKaRa</string>
+		</dict>
+	</array>
+</dict>
+</plist>
