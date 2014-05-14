@@ -71,7 +71,6 @@
 		347181EA18D602C300B63B8A /* OKKaRaDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaDataController.h; sourceTree = "<group>"; };
 		347181EB18D602C300B63B8A /* OKKaRaDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKaRaDataController.m; sourceTree = "<group>"; };
 		3495F14318D739F9009571B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		349AAB201923C89600EBEF4A /* Crashlytics.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Crashlytics.app; path = ../../Downloads/Crashlytics.app; sourceTree = "<group>"; };
 		34B92AC118CEE581001FF269 /* OKKaRaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaTableViewCell.h; sourceTree = "<group>"; };
 		34B92AC218CEE581001FF269 /* OKKaRaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKaRaTableViewCell.m; sourceTree = "<group>"; };
 		34B92AC718CF01F1001FF269 /* OKKaRaFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaFavoriteViewController.h; sourceTree = "<group>"; };
@@ -195,7 +194,6 @@
 		34F0DF8518CE2A54001CA201 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				349AAB201923C89600EBEF4A /* Crashlytics.app */,
 				34554152190190D7007ADD86 /* Crashlytics.framework */,
 				3404968318CEA80100AD3A89 /* SystemConfiguration.framework */,
 				34F0DF8618CE2A54001CA201 /* Foundation.framework */,
