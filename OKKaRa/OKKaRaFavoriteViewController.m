@@ -21,8 +21,8 @@
     self.navigationItem.title = @"Bài hát yêu thích";
     self.selectedRowIndex = -1;
     //Add gesture to table view
-    UIScreenEdgePanGestureRecognizer *leftSwipe = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToMasterViewController:)];
-    leftSwipe.edges = UIRectEdgeLeft;
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToMasterViewController:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     leftSwipe.delegate = self;
     [self.tableView addGestureRecognizer:leftSwipe];
     

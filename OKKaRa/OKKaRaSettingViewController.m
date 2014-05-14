@@ -28,8 +28,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Cài đặt";
     //Add gesture to view controller
-    UIScreenEdgePanGestureRecognizer *rightSwipe = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToMasterViewController:)];
-    rightSwipe.edges = UIRectEdgeRight;
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToMasterViewController:)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     rightSwipe.delegate = self;
     [self.tableView addGestureRecognizer:rightSwipe];
     

@@ -16,6 +16,7 @@
 @synthesize searchDisplayController;
 @synthesize fetchedResultsController;
 @synthesize selectedRowIndex;
+@synthesize filteredResults;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,16 +24,17 @@
     //Can't scroll at the bottom
     self.searchDisplayController.searchResultsTableView.bounces = NO;
     self.tableView.bounces = NO;
+    filteredResults = [NSMutableDictionary new];
     
     //Add gesture to table view
     
-    UIScreenEdgePanGestureRecognizer *leftSwipe = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToSettingViewController:)];
-    leftSwipe.edges = UIRectEdgeLeft;
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToSettingViewController:)];
     leftSwipe.delegate = self;
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionRight;
     [self.tableView addGestureRecognizer:leftSwipe];
     
-    UIScreenEdgePanGestureRecognizer *rightSwipe = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToFavoriteViewController:)];
-    rightSwipe.edges = UIRectEdgeRight;
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeToFavoriteViewController:)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     rightSwipe.delegate = self;
     [self.tableView addGestureRecognizer:rightSwipe];
 
@@ -114,38 +116,70 @@
 }
 
 
-
 #pragma mark - UISearchDisplayDelegate
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    
-    NSPredicate *predicate;
-    if ([searchText length] > 0) {
-        if ([searchText characterAtIndex:0] == ' ') {
-            if ([searchText isEqualToString:@" vn"] || [searchText isEqualToString:@" en"]) {
-                predicate = [NSPredicate predicateWithFormat:@"SELF.lang CONTAINS[cd] %@", [searchText substringFromIndex:1]];
+
+- (void)filterContentForSearchText:(NSString *)searchText {
+    if ([searchText length] != 0)
+    {
+        fetchedObjects = [filteredResults objectForKey:searchText];
+        
+        if (!fetchedObjects)
+        {
+            NSPredicate *predicate;
+            if ([searchText characterAtIndex:0] == ' ') {
+                if ([searchText isEqualToString:@" vn"] || [searchText isEqualToString:@" en"]) {
+                    predicate = [NSPredicate predicateWithFormat:@"SELF.lang CONTAINS[cd] %@", [searchText substringFromIndex:1]];
+                }
+                else {
+                    predicate = [NSPredicate predicateWithFormat:@"SELF.lyric CONTAINS[cd] %@", [searchText substringFromIndex:1]];
+                }
             }
             else {
-                predicate = [NSPredicate predicateWithFormat:@"SELF.lyric CONTAINS[cd] %@", [searchText substringFromIndex:1]];
+                predicate = [NSPredicate predicateWithFormat:@"(SELF.search BEGINSWITH %@) OR (SELF.stand CONTAINS %@)",searchText, searchText];
             }
-        } else {
-            predicate = [NSPredicate predicateWithFormat:@"(SELF.search BEGINSWITH %@) OR (SELF.stand CONTAINS %@)",searchText, searchText];
+            if ([searchText characterAtIndex:0] != ' ') {
+                for (NSString *cachedSearchText in [[filteredResults allKeys] sortedArrayUsingDescriptors:@[[[NSSortDescriptor alloc] initWithKey:@"length" ascending:NO]]])
+                {
+                    if ([searchText hasPrefix:cachedSearchText])
+                    {
+                        fetchedObjects = [[filteredResults objectForKey:cachedSearchText] filteredArrayUsingPredicate:predicate];
+                        break;
+                    }
+                }
+            }
+
+            if(!fetchedObjects || [searchText characterAtIndex:0] == ' ')
+            {
+                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"Songs" inManagedObjectContext:[[OKKaRaDataController sharedDataController] managedObjectContext]];
+                [fetchRequest setEntity:entity];
+                fetchRequest.predicate = predicate;
+                NSSortDescriptor *sortTitle = [[NSSortDescriptor alloc] initWithKey:@"search" ascending:YES];
+                NSSortDescriptor *sortLang = [[NSSortDescriptor alloc] initWithKey:@"lang" ascending:NO];
+                [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortLang, sortTitle, nil]];
+                [fetchRequest setFetchBatchSize:10];
+                fetchedObjects = [[[OKKaRaDataController sharedDataController] managedObjectContext] executeFetchRequest:fetchRequest error:nil];
+            }
+            [filteredResults setObject:fetchedObjects forKey:searchText];
         }
-        fetchedObjects = [[[self.fetchedResultsController.sections objectAtIndex:0] objects] filteredArrayUsingPredicate:predicate];
-        NSSortDescriptor *searchSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"search" ascending:YES];
-        fetchedObjects = [fetchedObjects sortedArrayUsingDescriptors:[NSArray arrayWithObject:searchSortDescriptor]];
-        [self.searchDisplayController.searchResultsTableView reloadData];
     }
+    
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    CFTimeInterval startTime = CACurrentMediaTime();
+    
     fetchedObjects = nil;
     // Tells the table data source to reload when text changes
-    [self filterContentForSearchText:searchString scope:
-    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    [self filterContentForSearchText:searchString];
     //scroll to top
     [self.searchDisplayController.searchResultsTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     // Return YES to cause the search result table view to be reloaded.
+    
+    CFTimeInterval elapsedTime = CACurrentMediaTime() - startTime;
+    NSLog(@"%f", elapsedTime);
     return YES;
 }
 

@@ -12,6 +12,7 @@
 @property(nonatomic, strong) UISearchDisplayController *searchDisplayController;
 @property(nonatomic, strong) NSArray *fetchedObjects;
 @property(nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property(nonatomic, strong) NSMutableDictionary *filteredResults;
 @property int selectedRowIndex;
 @property BOOL isKeyboardShow;
 

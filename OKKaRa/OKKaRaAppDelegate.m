@@ -41,7 +41,7 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Songs" inManagedObjectContext:[[OKKaRaDataController sharedDataController] managedObjectContext]];
         [request setEntity:entity];
         
-        NSSortDescriptor *sortTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+        NSSortDescriptor *sortTitle = [[NSSortDescriptor alloc] initWithKey:@"search" ascending:YES];
         NSSortDescriptor *sortLang = [[NSSortDescriptor alloc] initWithKey:@"lang" ascending:NO];
         
         [request setSortDescriptors:[NSArray arrayWithObjects:sortLang, sortTitle, nil]];
