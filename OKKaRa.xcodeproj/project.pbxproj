@@ -17,16 +17,15 @@
 		342BB1F318FECFE700208D67 /* Background6-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342BB1EA18FECFE700208D67 /* Background6-568h@2x.png */; };
 		34344D3C18EE9E9A005EE6CF /* OKKaRaSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34344D3B18EE9E9A005EE6CF /* OKKaRaSettingViewController.m */; };
 		344040DB18F2F3EB00F63EBC /* Songs.m in Sources */ = {isa = PBXBuildFile; fileRef = 344040DA18F2F3EB00F63EBC /* Songs.m */; };
-		34554153190190D7007ADD86 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34554152190190D7007ADD86 /* Crashlytics.framework */; };
 		3460611218FC1C6500511C34 /* OKKaRaHorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3460611118FC1C6500511C34 /* OKKaRaHorizontalScroller.m */; };
 		347181EC18D602C300B63B8A /* OKKaRaDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347181EB18D602C300B63B8A /* OKKaRaDataController.m */; };
 		3495F14418D739F9009571B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3495F14318D739F9009571B8 /* Images.xcassets */; };
+		349AAB221923C8A600EBEF4A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F0DF8C18CE2A54001CA201 /* CoreData.framework */; };
 		34B92AC318CEE581001FF269 /* OKKaRaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B92AC218CEE581001FF269 /* OKKaRaTableViewCell.m */; };
 		34B92AC918CF01F1001FF269 /* OKKaRaFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B92AC818CF01F1001FF269 /* OKKaRaFavoriteViewController.m */; };
 		34E1747718F9028A009B8F46 /* OKKaRaDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 34E1747618F9028A009B8F46 /* OKKaRaDB.sqlite */; };
 		34F0DF8718CE2A54001CA201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F0DF8618CE2A54001CA201 /* Foundation.framework */; };
 		34F0DF8B18CE2A54001CA201 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F0DF8A18CE2A54001CA201 /* UIKit.framework */; };
-		34F0DF8D18CE2A54001CA201 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F0DF8C18CE2A54001CA201 /* CoreData.framework */; };
 		34F0DF9318CE2A54001CA201 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34F0DF9118CE2A54001CA201 /* InfoPlist.strings */; };
 		34F0DF9518CE2A54001CA201 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F0DF9418CE2A54001CA201 /* main.m */; };
 		34F0DF9918CE2A54001CA201 /* OKKaRaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F0DF9818CE2A54001CA201 /* OKKaRaAppDelegate.m */; };
@@ -72,6 +71,7 @@
 		347181EA18D602C300B63B8A /* OKKaRaDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaDataController.h; sourceTree = "<group>"; };
 		347181EB18D602C300B63B8A /* OKKaRaDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKaRaDataController.m; sourceTree = "<group>"; };
 		3495F14318D739F9009571B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		349AAB201923C89600EBEF4A /* Crashlytics.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Crashlytics.app; path = ../../Downloads/Crashlytics.app; sourceTree = "<group>"; };
 		34B92AC118CEE581001FF269 /* OKKaRaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaTableViewCell.h; sourceTree = "<group>"; };
 		34B92AC218CEE581001FF269 /* OKKaRaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKaRaTableViewCell.m; sourceTree = "<group>"; };
 		34B92AC718CF01F1001FF269 /* OKKaRaFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKaRaFavoriteViewController.h; sourceTree = "<group>"; };
@@ -100,8 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34554153190190D7007ADD86 /* Crashlytics.framework in Frameworks */,
-				34F0DF8D18CE2A54001CA201 /* CoreData.framework in Frameworks */,
+				349AAB221923C8A600EBEF4A /* CoreData.framework in Frameworks */,
 				34F0DF8B18CE2A54001CA201 /* UIKit.framework in Frameworks */,
 				34F0DF8718CE2A54001CA201 /* Foundation.framework in Frameworks */,
 			);
@@ -196,6 +195,7 @@
 		34F0DF8518CE2A54001CA201 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				349AAB201923C89600EBEF4A /* Crashlytics.app */,
 				34554152190190D7007ADD86 /* Crashlytics.framework */,
 				3404968318CEA80100AD3A89 /* SystemConfiguration.framework */,
 				34F0DF8618CE2A54001CA201 /* Foundation.framework */,
@@ -506,6 +506,7 @@
 					"$(inherited)",
 					/Users/nhut/Documents/OKKaRa,
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OKKaRa/OKKaRa-Prefix.pch";
 				INFOPLIST_FILE = "OKKaRa/OKKaRa-Info.plist";
@@ -525,6 +526,7 @@
 					"$(inherited)",
 					/Users/nhut/Documents/OKKaRa,
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OKKaRa/OKKaRa-Prefix.pch";
 				INFOPLIST_FILE = "OKKaRa/OKKaRa-Info.plist";

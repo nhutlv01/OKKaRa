@@ -169,17 +169,12 @@
 }
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    CFTimeInterval startTime = CACurrentMediaTime();
-    
     fetchedObjects = nil;
     // Tells the table data source to reload when text changes
     [self filterContentForSearchText:searchString];
     //scroll to top
     [self.searchDisplayController.searchResultsTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     // Return YES to cause the search result table view to be reloaded.
-    
-    CFTimeInterval elapsedTime = CACurrentMediaTime() - startTime;
-    NSLog(@"%f", elapsedTime);
     return YES;
 }
 

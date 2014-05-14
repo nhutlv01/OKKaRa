@@ -7,7 +7,8 @@
 //
 
 #import "OKKaRaAppDelegate.h"
-#import <Crashlytics/Crashlytics.h>
+
+//#import <Crashlytics/Crashlytics.h>
 
 @implementation OKKaRaAppDelegate
 @synthesize masterViewController;
