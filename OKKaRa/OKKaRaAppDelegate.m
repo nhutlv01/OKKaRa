@@ -7,8 +7,7 @@
 //
 
 #import "OKKaRaAppDelegate.h"
-
-//#import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation OKKaRaAppDelegate
 @synthesize masterViewController;
@@ -20,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[Crashlytics startWithAPIKey:@"8f3d3846174edc5a4618828bc4727b9c302493c4"];
+    [Crashlytics startWithAPIKey:@"8f3d3846174edc5a4618828bc4727b9c302493c4"];
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     //Set status bar hiden

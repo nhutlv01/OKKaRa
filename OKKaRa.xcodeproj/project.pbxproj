@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34089A3518CED2F2009CB1A2 /* OKKaRaMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34089A3418CED2F2009CB1A2 /* OKKaRaMasterViewController.m */; };
+		34132CF31923CDA000A67505 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34554152190190D7007ADD86 /* Crashlytics.framework */; };
 		342BB1ED18FECFE700208D67 /* Background0-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342BB1E418FECFE700208D67 /* Background0-568h@2x.png */; };
 		342BB1EE18FECFE700208D67 /* Background1-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342BB1E518FECFE700208D67 /* Background1-568h@2x.png */; };
 		342BB1EF18FECFE700208D67 /* Background2-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 342BB1E618FECFE700208D67 /* Background2-568h@2x.png */; };
@@ -99,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34132CF31923CDA000A67505 /* Crashlytics.framework in Frameworks */,
 				349AAB221923C8A600EBEF4A /* CoreData.framework in Frameworks */,
 				34F0DF8B18CE2A54001CA201 /* UIKit.framework in Frameworks */,
 				34F0DF8718CE2A54001CA201 /* Foundation.framework in Frameworks */,
@@ -503,6 +505,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nhut/Documents/OKKaRa,
+					/Users/nhut/Documents/github,
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -523,6 +526,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nhut/Documents/OKKaRa,
+					/Users/nhut/Documents/github,
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
